@@ -1,0 +1,12 @@
+{
+    "python.analysis.extraPaths": [
+        "./src/domain/repository",
+        "./src/bd",
+        "./src/persistance/model",
+        "./src/domain/entity",
+        "./src/mapper",
+        "./src/persistance/repositoryImpl",
+        "./src/controller/entity",
+        "./src/domain/service/impl"
+    ]
+}
