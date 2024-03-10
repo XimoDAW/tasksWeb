@@ -3,8 +3,8 @@ import sys
 sys.path.append('c:\\tasksWeb\\ProyectoFinal\\src\\domain\\repository')
 import PositRepository
 
-sys.path.append('c:\\tasksWeb\\ProyectoFinal\\src\\bd') 
-import DButil
+sys.path.append('c:\\tasksWeb\\ProyectoFinal\\src\\persistance\\dao') 
+import PositDAO
 
 sys.path.append('c:\\tasksWeb\\ProyectoFinal\\src\\persistance\\model') 
 import PositEntity
@@ -12,16 +12,17 @@ import PositEntity
 sys.path.append('c:\\tasksWeb\\ProyectoFinal\\src\\mapper') 
 import PositMapper
 
-connection = DButil.connect('localhost', 'root', 'root', 'tasks')
-cursor = DButil.open(connection)
+
 
 class PositRepositoryImpl (PositRepository.PositRepository):
     def getAll(self):
         positsList = list()
-        cursor.execute('select * from posit')
+        positDAO = PositDAO.PositDAO()
+        positEntityList = positDAO.getAll()
+        
 
-        for id, name in cursor.fetchall():
-            positsList.append(PositMapper.toPosit(PositEntity.PositEntity(id, name)))
+        for positEntity in positEntityList:
+            positsList.append(PositMapper.toPosit(positEntity))
         return positsList
 
     def getById(self, id):
