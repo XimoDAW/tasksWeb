@@ -6,10 +6,11 @@ import PositService
 sys.path.append('c:\\tasksWeb\\ProyectoFinal\\src\\persistance\\repositoryImpl')
 import PositRepositoryImpl
 
+positRepository = PositRepositoryImpl.PositRepositoryImpl()
+
 class PositServiceImpl(PositService.PositService):
     def getAll(self):
-        positRepository = PositRepositoryImpl.PositRepositoryImpl()
         return positRepository.getAll()
     
     def getById(self, id):
-        pass
+        return positRepository.getById(id)

@@ -24,4 +24,7 @@ class PositDAO:
         return positEntityList
     
     def getById(self, id):
-        pass
+        self.cursor.execute('select * from posit where id=%s', (id))
+        id, name = self.cursor.fetchone()
+        positEntity = PositEntity.PositEntity(id, name)
+        return positEntity

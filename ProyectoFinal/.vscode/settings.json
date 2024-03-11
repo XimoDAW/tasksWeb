@@ -8,6 +8,7 @@
         "./src/persistance/repositoryImpl",
         "./src/controller/entity",
         "./src/domain/service/impl",
-        "./src/persistance/dao"
+        "./src/persistance/dao",
+        "./src/http_response"
     ]
 }
