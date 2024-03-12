@@ -9,6 +9,9 @@ import Posit
 sys.path.append('c:\\tasksWeb\\ProyectoFinal\\src\\controller\\entity')
 import PositDetailWeb
 
+sys.path.append('c:\\tasksWeb\\ProyectoFinal\\src\\controller\\entity')
+import PositCreate
+
 def toPosit(positEntity):
     posit = Posit.Posit(0, '')
     posit.setId(positEntity.getId())
@@ -20,3 +23,13 @@ def toPositDetailWeb(posit):
     positDetailWeb.setId(posit.getId())
     positDetailWeb.setName(posit.getName())
     return positDetailWeb
+
+def toPositForInsert(positCreate):
+    posit = Posit.Posit(0, '')
+    posit.setName(positCreate.getName())
+    return posit
+
+def toPositEntity(posit):
+    positEntity = PositEntity.PositEntity(0, '')
+    positEntity.setName(posit.getName())
+    return positEntity

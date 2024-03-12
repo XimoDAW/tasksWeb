@@ -27,5 +27,10 @@ class PositRepositoryImpl (PositRepository.PositRepository):
         positEntity = positDAO.getById(id)
         posit = PositMapper.toPosit(positEntity)
         return posit
-
-a = PositRepositoryImpl()
+    
+    def deletePosit(self, id):
+        return positDAO.deletePosit(id)
+    
+    def insertPosit(self, posit):
+        positEntity = PositMapper.toPositEntity(posit)
+        return positDAO.insertPosit(positEntity)

@@ -10,4 +10,10 @@ class PositService(metaclass=ABCMeta):
     def getById(self, id):
         pass
 
-print(sys.path)
+    @abstractmethod
+    def deletePosit(self, id):
+        pass
+
+    @abstractmethod
+    def insertPosit(self, posit):
+        pass

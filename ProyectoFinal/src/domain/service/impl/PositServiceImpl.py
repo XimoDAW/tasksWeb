@@ -14,3 +14,9 @@ class PositServiceImpl(PositService.PositService):
     
     def getById(self, id):
         return positRepository.getById(id)
+    
+    def deletePosit(self, id):
+        return positRepository.deletePosit(id)
+    
+    def insertPosit(self, posit):
+        return positRepository.insertPosit(posit)
