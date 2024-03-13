@@ -9,6 +9,7 @@
         "./src/controller/entity",
         "./src/domain/service/impl",
         "./src/persistance/dao",
-        "./src/http_response"
+        "./src/http_response",
+        "./src/http_errors"
     ]
 }

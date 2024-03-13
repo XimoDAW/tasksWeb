@@ -12,6 +12,13 @@ import PositEntity
 sys.path.append('c:\\tasksWeb\\ProyectoFinal\\src\\mapper') 
 import PositMapper
 
+sys.path.append('c:\\tasksWeb\\ProyectoFinal\\src\\http_errors')
+import SQLException
+
+sys.path.append('c:\\tasksWeb\\ProyectoFinal\\src\\http_errors')
+import ResourceNotFoundException
+
+
 positDAO = PositDAO.PositDAO()
 
 class PositRepositoryImpl (PositRepository.PositRepository):
@@ -25,9 +32,12 @@ class PositRepositoryImpl (PositRepository.PositRepository):
 
     def getById(self, id):
         positEntity = positDAO.getById(id)
+        if (positEntity is None):
+            return None
+            
         posit = PositMapper.toPosit(positEntity)
-        return posit
-    
+        return posit 
+            
     def deletePosit(self, id):
         return positDAO.deletePosit(id)
     

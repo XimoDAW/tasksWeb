@@ -6,6 +6,9 @@ import PositService
 sys.path.append('c:\\tasksWeb\\ProyectoFinal\\src\\persistance\\repositoryImpl')
 import PositRepositoryImpl
 
+sys.path.append('c:\\tasksWeb\\ProyectoFinal\\src\\http_errors')
+import ResourceNotFoundException
+
 positRepository = PositRepositoryImpl.PositRepositoryImpl()
 
 class PositServiceImpl(PositService.PositService):
@@ -13,7 +16,12 @@ class PositServiceImpl(PositService.PositService):
         return positRepository.getAll()
     
     def getById(self, id):
-        return positRepository.getById(id)
+        posit = positRepository.getById(id)
+
+        if (posit is None):
+            raise ResourceNotFoundException.ResourceNotFoundException('ERROR(404): No se encuentra el posit con ese id')
+
+        return posit
     
     def deletePosit(self, id):
         return positRepository.deletePosit(id)

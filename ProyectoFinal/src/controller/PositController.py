@@ -15,6 +15,9 @@ import PositCreate
 sys.path.append('c:\\tasksWeb\\ProyectoFinal\\src\\mapper') 
 import PositMapper
 
+sys.path.append('c:\\tasksWeb\\ProyectoFinal\\src\\http_errors')
+import ResourceNotFoundException
+
 positService = PositServiceImpl.PositServiceImpl()
 
 @app.route('/posits', methods=['GET'])
@@ -30,11 +33,15 @@ def getAll():
 
 @app.route('/posits/<int:id>', methods=['GET'])
 def getById(id, name=None):
-    posit = positService.getById(id)
-    positDetailWeb = PositMapper.toPositDetailWeb(posit).getJson()
 
-    response = ResponseTask.getPage(positDetailWeb)
-    return response
+    try:
+        posit = positService.getById(id)
+        positDetailWeb = PositMapper.toPositDetailWeb(posit).getJson()
+        response = ResponseTask.getPage(positDetailWeb)
+        return response
+        
+    except ResourceNotFoundException.ResourceNotFoundException as exce:
+        return exce.getMessage()
 
 @app.route('/posits', methods=['POST'])
 def insertPosit():

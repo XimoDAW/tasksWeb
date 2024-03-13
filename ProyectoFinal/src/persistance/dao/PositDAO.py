@@ -6,6 +6,12 @@ import DButil
 sys.path.append('c:\\tasksWeb\\ProyectoFinal\\src\\persistance\\model') 
 import PositEntity
 
+sys.path.append('c:\\tasksWeb\\ProyectoFinal\\src\\http_errors')
+import SQLException
+
+sys.path.append('c:\\tasksWeb\\ProyectoFinal\\src\\http_errors')
+import ResourceNotFoundException
+
 
 class PositDAO:
     connection = ''
@@ -26,7 +32,11 @@ class PositDAO:
     def getById(self, id):
         cursor = DButil.open(self.connection)
         cursor.execute('select * from posit where id=%s', (id))
-        id, name = cursor.fetchone()
+        result = cursor.fetchone()
+
+        if not result:
+            return None
+        id, name = result
         positEntity = PositEntity.PositEntity(id, name)
         return positEntity
     
