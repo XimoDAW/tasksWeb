@@ -1,0 +1,16 @@
+{
+    "python.analysis.extraPaths": [
+        "./ProyectoFinal/src/bd",
+        "./ProyectoFinal/src/persistance/model",
+        "./ProyectoFinal/src/domain/entity",
+        "./ProyectoFinal/src/persistance/dao",
+        "./ProyectoFinal/src/domain/repository",
+        "./ProyectoFinal/src/mapper",
+        "./ProyectoFinal/src/http_errors",
+        "./ProyectoFinal/src/persistance/repositoryImpl",
+        "./ProyectoFinal/src/controller/entity",
+        "./ProyectoFinal/src/http_response",
+        "./ProyectoFinal/src/domain/service/impl",
+        "./ProyectoFinal/src/controller"
+    ]
+}

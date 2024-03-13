@@ -44,6 +44,7 @@ class PositDAO:
         cursor = DButil.open(self.connection)
         cursor.execute('delete from posit where id=%s', (id))
         deleting = 'Posit borrado con el id: ' + str(id)
+        cursor.execute('alter table posit AUTO_INCREMENT = 1')
         self.connection.commit()
         return deleting
     

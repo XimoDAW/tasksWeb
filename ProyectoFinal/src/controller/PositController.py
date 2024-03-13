@@ -1,7 +1,8 @@
 import sys
-from flask import Flask, jsonify, request
+from flask import Blueprint, Flask, jsonify, request
 
-app = Flask (__name__)
+positApp = Blueprint('positApp', __name__)
+
 
 sys.path.append('c:\\tasksWeb\\ProyectoFinal\\src\\domain\\service\\impl')
 import PositServiceImpl
@@ -20,7 +21,7 @@ import ResourceNotFoundException
 
 positService = PositServiceImpl.PositServiceImpl()
 
-@app.route('/posits', methods=['GET'])
+@positApp.route('/posits', methods=['GET'])
 def getAll():
     #Posible paginacion en futuro: page = request.args.get('page', type=int)
     positList = positService.getAll()
@@ -31,7 +32,7 @@ def getAll():
     response = ResponseTask.getPage(positsDetailWeb)
     return response
 
-@app.route('/posits/<int:id>', methods=['GET'])
+@positApp.route('/posits/<int:id>', methods=['GET'])
 def getById(id, name=None):
 
     try:
@@ -43,7 +44,7 @@ def getById(id, name=None):
     except ResourceNotFoundException.ResourceNotFoundException as exce:
         return exce.getMessage()
 
-@app.route('/posits', methods=['POST'])
+@positApp.route('/posits', methods=['POST'])
 def insertPosit():
     request_data = request.get_json()
     positCreate = PositCreate.PositCreate('')
@@ -56,12 +57,9 @@ def insertPosit():
     response = ResponseTask.getPage(positService.insertPosit(posit))
     return response
 
-@app.route('/posits/<int:id>', methods=['DELETE'])
+@positApp.route('/posits/<int:id>', methods=['DELETE'])
 def deletePosit(id, name=None):
     deleting = positService.deletePosit(id)
 
     response = ResponseTask.getPage(deleting)
     return response
-
-
-app.run(debug=True)
