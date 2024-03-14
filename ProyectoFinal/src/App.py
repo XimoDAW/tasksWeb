@@ -12,9 +12,13 @@ sys.path.append('c:\\tasksWeb\\ProyectoFinal\\src\\controller')
 
 from ManagementController import managementApp
 
+sys.path.append('c:\\tasksWeb\\ProyectoFinal\\src\\controller')
+
+from MainController import mainApp
+
 app.register_blueprint(managementApp)
 app.register_blueprint(positApp)
-
+app.register_blueprint(mainApp)
 
 if (__name__=='__main__'):
     app.run(debug=True)

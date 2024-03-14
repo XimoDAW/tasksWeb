@@ -20,3 +20,13 @@ class StatusRepositoryImpl(StatusRepository.StatusRepository):
         
         status = StatusMapper.toStatus(statusEntity)
         return status
+    
+    def getStatusByTaskId(self, id):
+
+        statusEntity = statusDAO.getStatusByTaskId(id)
+
+        if (statusEntity is None):
+            return None
+        
+        status = StatusMapper.toStatus(statusEntity)
+        return status
