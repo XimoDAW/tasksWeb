@@ -6,12 +6,6 @@ import DButil
 sys.path.append('c:\\tasksWeb\\ProyectoFinal\\src\\persistance\\model') 
 import PositEntity
 
-sys.path.append('c:\\tasksWeb\\ProyectoFinal\\src\\http_errors')
-import SQLException
-
-sys.path.append('c:\\tasksWeb\\ProyectoFinal\\src\\http_errors')
-import ResourceNotFoundException
-
 
 class PositDAO:
     connection = ''
