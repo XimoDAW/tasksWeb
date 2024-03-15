@@ -35,9 +35,9 @@ class TaskRepositoryImpl (TaskRepository.TaskRepository):
         task = TaskMapper.toTask(taskEntity)
         return task 
             
-    #def deletePosit(self, id):
-        #return positDAO.deletePosit(id)
+    def deleteTask(self, id):
+        return taskDAO.deleteTask(id)
     
-    #def insertPosit(self, posit):
-        #positEntity = PositMapper.toPositEntity(posit)
-        #return positDAO.insertPosit(positEntity)
+    def insertTask(self, task):
+        taskEntity = TaskMapper.toTaskEntity(task)
+        return taskDAO.insertTask(taskEntity, task.getStatus().getId())

@@ -9,10 +9,10 @@ class TaskService(metaclass=ABCMeta):
     def getById(self, id):
         pass
 
-    #@abstractmethod
-    #def deletePosit(self, id):
-        #pass
+    @abstractmethod
+    def deleteTask(self, id):
+        pass
 
-    #@abstractmethod
-    #def insertPosit(self, posit):
-        #pass
+    @abstractmethod
+    def insertTask(self, task, positId, managementId, statusId):
+        pass
