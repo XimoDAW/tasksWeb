@@ -20,7 +20,7 @@ import ManagementMapper
 
 
 def toTask(taskEntity):
-    task = Task.Task(0, '', '', None, None, '', '', None)
+    task = Task.Task(0, '', '', None, None, '', '', '')
     task.setId(taskEntity.getId())
     task.setName(taskEntity.getName())
     task.setDescription(taskEntity.getDescription())
@@ -28,7 +28,13 @@ def toTask(taskEntity):
     task.setManagement(ManagementMapper.toManagement(taskEntity.getManagementEntity()))
     task.setStartDate(taskEntity.getStartDate())
     task.setEndDate(taskEntity.getEndDate())
+    task.setStatus(mapperStatusToTask(taskEntity.getStatus()))
     return task
+
+def mapperStatusToTask(statusCondition):
+    if (statusCondition):
+        return 'Pendiente'
+    return 'Fuera de plazo'
 
 def toTaskListWeb(task):
     taskListWeb = TaskListWeb.TaskListWeb(0, '')
@@ -45,26 +51,28 @@ def toTaskDetailWeb(task):
     taskDetailWeb.setManagementDetailWeb(ManagementMapper.toManagement(task.getManagement()))
     taskDetailWeb.setStartDate(task.getStartDate())
     taskDetailWeb.setEndDate(task.getEndDate())
-    taskDetailWeb.setStatusDetailWeb(task.getStatus().getStatus())
+    taskDetailWeb.setStatus(task.getStatus())
     return taskDetailWeb
 
 def toTaskForInsert(taskCreate):
-    task = Task.Task(0, '', '', None, None, '', '', None)
+    task = Task.Task(0, '', '', None, None, '', '', 0)
     task.setName(taskCreate.getName())
     task.setDescription(taskCreate.getDescription())
     task.setPosit(None)
-    task.setStatus(None)
     task.setManagement(None)
     task.setStartDate(taskCreate.getStartDate())
     task.setEndDate(taskCreate.getEndDate())
+    task.setStatus(taskCreate.getStatus())
+
     return task
 
 def toTaskEntity(task):
-    taskEntity = TaskEntity.TaskEntity(0, '', '', None, None, '', '', None)
+    taskEntity = TaskEntity.TaskEntity(0, '', '', None, None, '', '', True)
     taskEntity.setName(task.getName())
     taskEntity.setDescription(task.getDescription())
     taskEntity.setPositEntity(task.getPosit())
     taskEntity.setManagementEntity(task.getManagement())
     taskEntity.setStartDate(task.getStartDate())
     taskEntity.setEndDate(task.getEndDate())
+    taskEntity.setStatus(task.getStatus())
     return taskEntity

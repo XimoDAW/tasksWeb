@@ -1,7 +1,5 @@
 from Posit import Posit
 
-from Status import Status
-
 from Management import Management
 
 class Task:
@@ -10,9 +8,9 @@ class Task:
     __description = ''
     __posit = Posit(0, '')
     __management = Management(0)
-    __status = Status(0, '')
     __startDate = ''
     __endDate = ''
+    __status = ''
     
     def __init__(self, id, name, description, posit, management, startDate, endDate, status):
         self.__id = id

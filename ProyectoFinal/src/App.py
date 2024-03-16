@@ -22,8 +22,8 @@ from MainController import mainApp
 
 app.register_blueprint(managementApp)
 app.register_blueprint(positApp)
-app.register_blueprint(mainApp)
 app.register_blueprint(taskApp)
+app.register_blueprint(mainApp)
 
 if (__name__=='__main__'):
     app.run(debug=True)

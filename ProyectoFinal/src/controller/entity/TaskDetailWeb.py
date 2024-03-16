@@ -9,11 +9,11 @@ class TaskDetailWeb:
     __description = ''
     __positDetailWeb = PositDetailWeb(0, '')
     __managementDetailWeb = ManagementDetailWeb(0)
-    __statusDetailWeb = ''
     __startDate = ''
     __endDate = ''
+    __status = True
     
-    def __init__(self, id, name, description, positDetailWeb, managementDetailWeb, startDate, endDate, statusDetailWeb):
+    def __init__(self, id, name, description, positDetailWeb, managementDetailWeb, startDate, endDate, status):
         self.__id = id
         self.__name = name
         self.__description = description
@@ -21,7 +21,7 @@ class TaskDetailWeb:
         self.__managementDetailWeb = managementDetailWeb
         self.__startDate = startDate
         self.__endDate = endDate
-        self.__statusDetailWeb = statusDetailWeb
+        self.__status = status
 
     def getId(self):
         return self.__id
@@ -65,11 +65,11 @@ class TaskDetailWeb:
     def setEndDate(self, endDate):
         self.__endDate = endDate
 
-    def getStatusDetailWeb(self):
-        return self.__statusDetailWeb
+    def getStatus(self):
+        return self.__status
     
-    def setStatusDetailWeb(self, statusDetailWeb):
-        self.__statusDetailWeb = statusDetailWeb
+    def setStatus(self, status):
+        self.__status = status
 
     def getJson(self):
         #Para pasar a JSON, tengo que pasar sus atributos, ya que no puede convertirlos a JSON todo junto

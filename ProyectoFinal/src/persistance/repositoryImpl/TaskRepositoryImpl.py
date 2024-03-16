@@ -40,4 +40,4 @@ class TaskRepositoryImpl (TaskRepository.TaskRepository):
     
     def insertTask(self, task):
         taskEntity = TaskMapper.toTaskEntity(task)
-        return taskDAO.insertTask(taskEntity, task.getStatus().getId())
+        return taskDAO.insertTask(taskEntity)

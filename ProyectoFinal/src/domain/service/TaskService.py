@@ -14,5 +14,5 @@ class TaskService(metaclass=ABCMeta):
         pass
 
     @abstractmethod
-    def insertTask(self, task, positId, managementId, statusId):
+    def insertTask(self, task, positId, managementId):
         pass

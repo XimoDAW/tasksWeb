@@ -1,7 +1,4 @@
 from PositEntity import PositEntity
-
-from StatusEntity import StatusEntity
-
 from ManagementEntity import ManagementEntity
 
 class TaskEntity:
@@ -10,11 +7,11 @@ class TaskEntity:
     __description = ''
     __positEntity = PositEntity(0, '')
     __managementEntity = ManagementEntity(0)
-    __statusEntity = StatusEntity(0, '')
     __startDate = ''
     __endDate = ''
+    __status = True
     
-    def __init__(self, id, name, description, positEntity, managementEntity, startDate, endDate, statusEntity):
+    def __init__(self, id, name, description, positEntity, managementEntity, startDate, endDate, status):
         self.__id = id
         self.__name = name
         self.__description = description
@@ -22,7 +19,7 @@ class TaskEntity:
         self.__managementEntity = managementEntity
         self.__startDate = startDate
         self.__endDate = endDate
-        self.__statusEntity = statusEntity
+        self.__status = status
 
     def getId(self):
         return self.__id
@@ -66,8 +63,8 @@ class TaskEntity:
     def setEndDate(self, endDate):
         self.__endDate = endDate
 
-    def getStatusEntity(self):
-        return self.__statusEntity
+    def getStatus(self):
+        return self.__status
     
-    def setStatusEntity(self, statusEntity):
-        self.__statusEntity = statusEntity
+    def setStatus(self, status):
+        self.__status = status
