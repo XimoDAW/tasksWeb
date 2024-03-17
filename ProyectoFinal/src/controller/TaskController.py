@@ -47,16 +47,15 @@ def getById(id, name=None):
 @taskApp.route('/tasks', methods=['POST'])
 def insertTask():
     request_data = request.get_json()
-    taskCreate = TaskCreate.TaskCreate('', '', 0, 0, '', '', True)
+    taskCreate = TaskCreate.TaskCreate('', '', 0, 0, '', '')
 
-    if ('name' in request_data) & ('description' in request_data) & ('positId' in request_data) & ('managementId' in request_data) & ('startDate' in request_data) & ('endDate' in request_data) & ('status' in request_data):
+    if ('name' in request_data) & ('description' in request_data) & ('positId' in request_data) & ('managementId' in request_data) & ('startDate' in request_data) & ('endDate' in request_data):
         taskCreate.setName(request_data['name'])
         taskCreate.setDescription(request_data['description'])
         taskCreate.setPositId(request_data['positId'])
         taskCreate.setManagementId(request_data['managementId'])
         taskCreate.setStartDate(request_data['startDate'])
         taskCreate.setEndDate(request_data['endDate'])
-        taskCreate.setStatus(request_data['status'])
 
     task = TaskMapper.toTaskForInsert(taskCreate)
     response = ResponseTask.getPage(taskService.insertTask(task, taskCreate.getPositId(), taskCreate.getManagementId()))

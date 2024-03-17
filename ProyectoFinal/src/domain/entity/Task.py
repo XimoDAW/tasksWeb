@@ -1,6 +1,11 @@
+from datetime import datetime
+import sys
 from Posit import Posit
 
 from Management import Management
+
+sys.path.append('c:\\tasksWeb\\ProyectoFinal\\src\\common\\validation')
+import TaskDateValidator
 
 class Task:
     __id = 0
@@ -56,12 +61,19 @@ class Task:
         return self.__startDate
     
     def setStartDate(self, startDate):
+        #TaskDateValidator.startDateValidator(str(startDate))
         self.__startDate = startDate
 
     def getEndDate(self):
         return self.__endDate
     
     def setEndDate(self, endDate):
+        dateEnd = endDate
+        dateStart = self.getStartDate()
+
+        if (dateEnd < dateStart):
+            raise Exception('No puedes insertar una fecha final anterior a la fecha inicial')
+        
         self.__endDate = endDate
 
     def getStatus(self):

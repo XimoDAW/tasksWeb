@@ -55,14 +55,14 @@ def toTaskDetailWeb(task):
     return taskDetailWeb
 
 def toTaskForInsert(taskCreate):
-    task = Task.Task(0, '', '', None, None, '', '', 0)
+    task = Task.Task(0, '', '', None, None, '', '', '')
     task.setName(taskCreate.getName())
     task.setDescription(taskCreate.getDescription())
     task.setPosit(None)
     task.setManagement(None)
     task.setStartDate(taskCreate.getStartDate())
     task.setEndDate(taskCreate.getEndDate())
-    task.setStatus(taskCreate.getStatus())
+    task.setStatus('')
 
     return task
 

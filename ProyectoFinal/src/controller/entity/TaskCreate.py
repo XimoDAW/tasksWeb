@@ -12,14 +12,13 @@ class TaskCreate:
     __endDate = '',
     __status = True
     
-    def __init__(self, name, description, positId, managementId, startDate, endDate, status):
+    def __init__(self, name, description, positId, managementId, startDate, endDate):
         self.__name = name
         self.__description = description
         self.__positId = positId
         self.__managementId = managementId
         self.__startDate = startDate
         self.__endDate = endDate
-        self.__status = status
 
     def getName(self):
         return self.__name
@@ -56,9 +55,3 @@ class TaskCreate:
     
     def setEndDate(self, endDate):
         self.__endDate = endDate
-
-    def getStatus(self):
-        return self.__status
-    
-    def setStatus(self, status):
-        self.__status = status

@@ -11,6 +11,7 @@
         "./ProyectoFinal/src/controller/entity",
         "./ProyectoFinal/src/http_response",
         "./ProyectoFinal/src/domain/service/impl",
-        "./ProyectoFinal/src/controller"
+        "./ProyectoFinal/src/controller",
+        "./ProyectoFinal/src/common/validation"
     ]
 }

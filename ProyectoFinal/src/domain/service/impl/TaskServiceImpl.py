@@ -1,3 +1,4 @@
+from datetime import datetime
 import sys
 
 sys.path.append('c:\\tasksWeb\\ProyectoFinal\\src\\domain\\service')
@@ -38,6 +39,13 @@ class TaskServiceImpl(TaskService.TaskService):
     def insertTask(self, task, positId, managementId):
         task.setPosit(positRepository.getById(positId))
         task.setManagement(managementRepository.getById(managementId))
+        startDate= datetime.strptime(task.getStartDate(), "%d-%m-%Y")
+        endDate= datetime.strptime(task.getEndDate(), "%d-%m-%Y")
+
+        if (endDate > datetime.now()):
+            task.setStatus(True)
+        else:
+            task.setStatus(False)
         return taskRepository.insertTask(task)
     
     def deleteTask(self, id):
