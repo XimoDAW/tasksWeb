@@ -16,3 +16,7 @@ class PositRepository(metaclass=ABCMeta):
     @abstractmethod
     def insertPosit(self, posit):
         pass
+
+    @abstractmethod
+    def updatePosit(self, posit, id):
+        pass

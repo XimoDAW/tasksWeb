@@ -48,3 +48,10 @@ class PositDAO:
         inserting = 'Posit insertado correctamente'
         self.connection.commit()
         return inserting
+    
+    def updatePosit(self, positEntity):
+        cursor = DButil.open(self.connection)
+        cursor.execute('update posit set name = %s where id = %s', (positEntity.getName(), positEntity.getId()))
+        updating = 'Posit actualizado correctamente'
+        self.connection.commit()
+        return updating

@@ -66,6 +66,18 @@ def toTaskForInsert(taskCreate):
 
     return task
 
+def toTaskForUpdate(taskCreate, id):
+    task = Task.Task(id, '', '', None, None, '', '', '')
+    task.setName(taskCreate.getName())
+    task.setDescription(taskCreate.getDescription())
+    task.setPosit(None)
+    task.setManagement(None)
+    task.setStartDate(taskCreate.getStartDate())
+    task.setEndDate(taskCreate.getEndDate())
+    task.setStatus('')
+
+    return task
+
 def toTaskEntity(task):
     taskEntity = TaskEntity.TaskEntity(0, '', '', None, None, '', '', True)
     taskEntity.setName(task.getName())

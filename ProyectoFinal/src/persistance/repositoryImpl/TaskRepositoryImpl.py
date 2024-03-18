@@ -41,3 +41,10 @@ class TaskRepositoryImpl (TaskRepository.TaskRepository):
     def insertTask(self, task):
         taskEntity = TaskMapper.toTaskEntity(task)
         return taskDAO.insertTask(taskEntity)
+    
+    def updateTask(self, task):
+        taskEntity = TaskMapper.toTaskEntity(task)
+        return taskDAO.updateTask(taskEntity, task.getId())
+    
+    def updateStatusByTaskId(self, taskId, status):
+        return taskDAO.updateStatusByTaskId(taskId, status)

@@ -34,6 +34,12 @@ class TaskServiceImpl(TaskService.TaskService):
         if (task is None):
             raise ResourceNotFoundException.ResourceNotFoundException('ERROR(404): No se encuentra la tarea')
         
+        endDate= datetime.strptime(str(task.getEndDate()), "%Y-%m-%d")
+
+        if (endDate < datetime.now()):
+            taskRepository.updateStatusByTaskId(task.getId(), 0)
+            task = taskRepository.getById(id)
+            
         return task
     
     def insertTask(self, task, positId, managementId):
@@ -47,6 +53,19 @@ class TaskServiceImpl(TaskService.TaskService):
         else:
             task.setStatus(False)
         return taskRepository.insertTask(task)
+    
+    def updateTask(self, task, positId, managementId, id):
+        task.setId(id)
+        task.setPosit(positRepository.getById(positId))
+        task.setManagement(managementRepository.getById(managementId))
+        startDate= datetime.strptime(task.getStartDate(), "%d-%m-%Y")
+        endDate= datetime.strptime(task.getEndDate(), "%d-%m-%Y")
+
+        if (endDate > datetime.now()):
+            task.setStatus(True)
+        else:
+            task.setStatus(False)
+        return taskRepository.updateTask(task)
     
     def deleteTask(self, id):
         return taskRepository.deleteTask(id)

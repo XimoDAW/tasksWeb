@@ -46,16 +46,35 @@ def getById(id, name=None):
 
 @positApp.route('/posits', methods=['POST'])
 def insertPosit():
-    request_data = request.get_json()
-    positCreate = PositCreate.PositCreate('')
+    try:
+        request_data = request.get_json()
+        positCreate = PositCreate.PositCreate('')
 
-    if 'name' in request_data:
-        positCreate.setName(request_data['name'])
+        if 'name' in request_data:
+            positCreate.setName(request_data['name'])
 
-    posit = PositMapper.toPositForInsert(positCreate)
+        posit = PositMapper.toPositForInsert(positCreate)
 
-    response = ResponseTask.getPage(positService.insertPosit(posit))
-    return response
+        response = ResponseTask.getPage(positService.insertPosit(posit))
+        return response
+    except Exception as exce:
+        return exce
+    
+@positApp.route('/posits/<int:id>', methods=['PUT'])
+def updatePosit(id, name=None):
+    try:
+        request_data = request.get_json()
+        positCreate = PositCreate.PositCreate('')
+
+        if 'name' in request_data:
+            positCreate.setName(request_data['name'])
+
+        posit = PositMapper.toPositForUpdate(positCreate)
+
+        response = ResponseTask.getPage(positService.updatePosit(posit, id))
+        return response
+    except Exception as exce:
+        return exce
 
 @positApp.route('/posits/<int:id>', methods=['DELETE'])
 def deletePosit(id, name=None):

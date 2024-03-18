@@ -28,3 +28,6 @@ class PositServiceImpl(PositService.PositService):
     
     def insertPosit(self, posit):
         return positRepository.insertPosit(posit)
+    
+    def updatePosit(self, posit, id):
+        return positRepository.updatePosit(posit, id)

@@ -48,6 +48,18 @@ class TaskDAO:
         self.connection.commit()
         return inserting
     
+    def updateTask(self, taskEntity, taskId):
+        cursor = DButil.open(self.connection)
+        cursor.execute('update task set name=%s, description=%s, id_posit=%s, id_management=%s, init=%s, end=%s where id = %s',(taskEntity.getName(), taskEntity.getDescription(), taskEntity.getPositEntity().getId(), taskEntity.getManagementEntity().getId(), datetime.strptime(taskEntity.getStartDate(), "%d-%m-%Y"), datetime.strptime(taskEntity.getEndDate(), "%d-%m-%Y"), taskId))
+        updating = 'Tarea actualizada correctamente'
+        self.connection.commit()
+        return updating
+    
+    def updateStatusByTaskId(self, taskId, status):
+        cursor = DButil.open(self.connection)
+        cursor.execute('update task set status = %s where id = %s', (status, taskId))
+        self.connection.commit()
+    
     def deleteTask(self, id):
         cursor = DButil.open(self.connection)
         print('Tarea con id: '+ str(id))

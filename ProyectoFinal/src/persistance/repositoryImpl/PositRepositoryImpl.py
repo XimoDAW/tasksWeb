@@ -44,3 +44,8 @@ class PositRepositoryImpl (PositRepository.PositRepository):
     def insertPosit(self, posit):
         positEntity = PositMapper.toPositEntity(posit)
         return positDAO.insertPosit(positEntity)
+    
+    def updatePosit(self, posit, id):
+        positEntity = PositMapper.toPositEntity(posit)
+        positEntity.setId(id)
+        return positDAO.updatePosit(positEntity)

@@ -16,3 +16,7 @@ class TaskRepository(metaclass=ABCMeta):
     @abstractmethod
     def insertTask(self, task):
         pass
+
+    @abstractmethod
+    def updateStatusByTaskId(self, taskId, status):
+        pass

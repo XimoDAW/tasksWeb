@@ -29,6 +29,11 @@ def toPositForInsert(positCreate):
     posit.setName(positCreate.getName())
     return posit
 
+def toPositForUpdate(positCreate):
+    posit = Posit.Posit(0, '')
+    posit.setName(positCreate.getName())
+    return posit
+
 def toPositEntity(posit):
     positEntity = PositEntity.PositEntity(0, '')
     positEntity.setName(posit.getName())
