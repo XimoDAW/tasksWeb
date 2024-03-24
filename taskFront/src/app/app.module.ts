@@ -7,12 +7,16 @@ import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
 import { TasksComponent } from './tasks/tasks.component';
 import { PositsComponent } from './posits/posits.component';
+import { MainComponent } from './main/main.component';
+import { TasksByPositComponent } from './tasks-by-posit/tasks-by-posit.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TasksComponent,
-    PositsComponent
+    PositsComponent,
+    MainComponent,
+    TasksByPositComponent
   ],
   imports: [
     BrowserModule,
