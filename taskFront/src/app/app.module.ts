@@ -5,10 +5,14 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
+import { TasksComponent } from './tasks/tasks.component';
+import { PositsComponent } from './posits/posits.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    TasksComponent,
+    PositsComponent
   ],
   imports: [
     BrowserModule,
