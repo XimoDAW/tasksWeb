@@ -11,8 +11,8 @@ export class ManagementServiceService {
 
     url = "http://127.0.0.1:5000/management"
   
-    getManagementById(id:number): Observable<Management[]> {
-      return this.managementServer.get<Management[]>(this.url + "/" + id)
-  
+    getManagementByUserAndPassword(user:string, password:string): Observable<Management[]> {
+      return this.managementServer.get<Management[]>(this.url + '?user=' + user + '&password=' + password)
+      
     }
   }

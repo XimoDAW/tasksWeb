@@ -12,7 +12,7 @@ export class TasksComponent {
   tasks!: Task[]
 
   ngOnInit() {
-    this.taskService.getAllTasks().subscribe(tasks => {
+    this.taskService.getAllTasks(1).subscribe(tasks => {
       this.tasks = tasks
       const tasksLength = tasks.length
 
@@ -37,6 +37,7 @@ export class TasksComponent {
         }
 
         this.tasks.push(task)
+        console.log(task)
       }
     })
   }

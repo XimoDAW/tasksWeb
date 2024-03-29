@@ -9,7 +9,8 @@ import { TasksComponent } from './tasks/tasks.component';
 import { PositsComponent } from './posits/posits.component';
 import { MainComponent } from './main/main.component';
 import { TasksByPositComponent } from './tasks-by-posit/tasks-by-posit.component';
-import { ManagementComponent } from './management/management.component';
+import { ErrorComponent } from './error/error.component';
+import { ErrorUsuarioComponent } from './error-usuario/error-usuario.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { ManagementComponent } from './management/management.component';
     PositsComponent,
     MainComponent,
     TasksByPositComponent,
-    ManagementComponent
+    ErrorComponent,
+    ErrorUsuarioComponent
   ],
   imports: [
     BrowserModule,
