@@ -11,8 +11,8 @@ class Task:
     __id = 0
     __name = ''
     __description = ''
-    __posit = Posit(0, '')
-    __management = Management(0)
+    __posit = Posit(0, '', 0)
+    __management = Management(0, '', '')
     __startDate = ''
     __endDate = ''
     __status = ''

@@ -10,7 +10,7 @@ export class TaskServiceService {
 
   constructor(private taskServer: HttpClient) { }
 
-  url = "http://127.0.0.1:5000/tasks"
+  url = "http://127.0.0.1:5000/tasks?managementId=1"
 
   getAllTasks(): Observable<Task[]> {
     return this.taskServer.get<Task[]>(this.url)

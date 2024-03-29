@@ -2,7 +2,7 @@ from abc import ABCMeta, abstractmethod
 
 class PositRepository(metaclass=ABCMeta):
     @abstractmethod
-    def getAll():
+    def getAll(self, managementId):
         pass
 
     @abstractmethod

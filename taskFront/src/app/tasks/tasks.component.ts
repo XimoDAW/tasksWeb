@@ -24,8 +24,6 @@ export class TasksComponent {
 
         let id = parseInt(dato.slice(indexId + 2, indexPoint))
         let name = dato.slice(indexName + 4, -3)
-        console.log(id)
-        console.log(name)
 
         let task:Task = {
           "id": id,

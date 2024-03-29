@@ -12,8 +12,8 @@ import ResourceNotFoundException
 positRepository = PositRepositoryImpl.PositRepositoryImpl()
 
 class PositServiceImpl(PositService.PositService):
-    def getAll(self):
-        return positRepository.getAll()
+    def getAll(self, managementId):
+        return positRepository.getAll(managementId)
     
     def getById(self, id):
         posit = positRepository.getById(id)

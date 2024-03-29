@@ -1,4 +1,5 @@
 export interface Posit {
     id:number,
-    name:string
+    name:string,
+    managementId:number
 }

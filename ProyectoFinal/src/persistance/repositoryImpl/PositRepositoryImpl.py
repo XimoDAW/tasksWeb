@@ -22,9 +22,9 @@ import ResourceNotFoundException
 positDAO = PositDAO.PositDAO()
 
 class PositRepositoryImpl (PositRepository.PositRepository):
-    def getAll(self):
+    def getAll(self, managementId):
         positsList = list()
-        positEntityList = positDAO.getAll()
+        positEntityList = positDAO.getAll(managementId)
 
         for positEntity in positEntityList:
             positsList.append(PositMapper.toPosit(positEntity))

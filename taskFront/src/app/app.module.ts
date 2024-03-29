@@ -9,6 +9,7 @@ import { TasksComponent } from './tasks/tasks.component';
 import { PositsComponent } from './posits/posits.component';
 import { MainComponent } from './main/main.component';
 import { TasksByPositComponent } from './tasks-by-posit/tasks-by-posit.component';
+import { ManagementComponent } from './management/management.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { TasksByPositComponent } from './tasks-by-posit/tasks-by-posit.component
     TasksComponent,
     PositsComponent,
     MainComponent,
-    TasksByPositComponent
+    TasksByPositComponent,
+    ManagementComponent
   ],
   imports: [
     BrowserModule,

@@ -9,9 +9,7 @@ class TaskCreate:
     __positId = 0
     __managementId = 0
     __startDate = ''
-    __endDate = '',
-    __status = True
-    
+    __endDate = ''    
     def __init__(self, name, description, positId, managementId, startDate, endDate):
         self.__name = name
         self.__description = description

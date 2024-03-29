@@ -14,12 +14,12 @@ class PositDAO:
     def __init__(self):
         self.connection = DButil.connect('localhost', 'root', 'root', 'tasks')
         
-    def getAll(self):
+    def getAll(self, managementId):
         cursor = DButil.open(self.connection)
         positEntityList = []
-        cursor.execute('select * from posit')
-        for id, name in cursor.fetchall():
-            positEntity = PositEntity.PositEntity(id, name)
+        cursor.execute('select * from posit where id_management = %s', (managementId))
+        for id, name, managementId in cursor.fetchall():
+            positEntity = PositEntity.PositEntity(id, name, managementId)
             positEntityList.append(positEntity)
         return positEntityList
     
@@ -30,8 +30,8 @@ class PositDAO:
 
         if not result:
             return None
-        id, name = result
-        positEntity = PositEntity.PositEntity(id, name)
+        id, name, managementId = result
+        positEntity = PositEntity.PositEntity(id, name, managementId)
         return positEntity
     
     def deletePosit(self, id):
@@ -44,7 +44,7 @@ class PositDAO:
     
     def insertPosit(self, positEntity):
         cursor = DButil.open(self.connection)
-        cursor.execute('insert into posit (name) values (%s)', (positEntity.getName()))
+        cursor.execute('insert into posit (name, id_management) values (%s, %s)', (positEntity.getName(), positEntity.getManagementId()))
         inserting = 'Posit insertado correctamente'
         self.connection.commit()
         return inserting

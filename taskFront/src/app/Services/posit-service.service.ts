@@ -12,8 +12,8 @@ export class PositServiceService {
 
   url = "http://127.0.0.1:5000/posits"
 
-  getAllPosits(): Observable<Posit[]> {
-    return this.positServer.get<Posit[]>(this.url)
+  getAllPosits(managementId:number): Observable<Posit[]> {
+    return this.positServer.get<Posit[]>(this.url + '?managementId=' + managementId)
 
   }
 }

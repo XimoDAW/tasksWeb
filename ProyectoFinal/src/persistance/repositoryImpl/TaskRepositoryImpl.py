@@ -19,9 +19,9 @@ import ResourceNotFoundException
 taskDAO = TaskDAO.TaskDAO()
 
 class TaskRepositoryImpl (TaskRepository.TaskRepository):
-    def getAll(self):
+    def getAll(self, managementId):
         tasksList = list()
-        taskEntityList = taskDAO.getAll()
+        taskEntityList = taskDAO.getAll(managementId)
 
         for taskEntity in taskEntityList:
             tasksList.append(TaskMapper.toTask(taskEntity))

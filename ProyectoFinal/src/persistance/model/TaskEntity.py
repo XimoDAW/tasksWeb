@@ -5,8 +5,8 @@ class TaskEntity:
     __id = 0
     __name = ''
     __description = ''
-    __positEntity = PositEntity(0, '')
-    __managementEntity = ManagementEntity(0)
+    __positEntity = PositEntity(0, '', 0)
+    __managementEntity = ManagementEntity(0, '', '')
     __startDate = ''
     __endDate = ''
     __status = True

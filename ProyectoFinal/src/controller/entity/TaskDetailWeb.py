@@ -7,8 +7,8 @@ class TaskDetailWeb:
     __id = 0
     __name = ''
     __description = ''
-    __positDetailWeb = PositDetailWeb(0, '')
-    __managementDetailWeb = ManagementDetailWeb(0)
+    __positDetailWeb = PositDetailWeb(0, '', 0)
+    __managementDetailWeb = ManagementDetailWeb(0, '', '')
     __startDate = ''
     __endDate = ''
     __status = True

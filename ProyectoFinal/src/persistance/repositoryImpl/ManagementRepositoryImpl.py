@@ -13,6 +13,22 @@ managementDAO = ManagementDAO.ManagementDAO()
 
 class ManagementRepositoryImpl (ManagementRepository.ManagementRepository):
 
+    def getAll(self):
+        managementList = list()
+        managementEntityList = managementDAO.getAll()
+
+        for managementEntity in managementEntityList:
+            managementList.append(ManagementMapper.toManagement(managementEntity))
+        return managementList
+
+    def getByUserAndPassword(self, user, password):
+        managementEntity = managementDAO.getByUserAndPassword(user, password)
+        if (managementEntity is None):
+            return None
+            
+        management = ManagementMapper.toManagement(managementEntity)
+        return management
+
     def getById(self, id):
         managementEntity = managementDAO.getById(id)
         if (managementEntity is None):
@@ -20,3 +36,10 @@ class ManagementRepositoryImpl (ManagementRepository.ManagementRepository):
             
         management = ManagementMapper.toManagement(managementEntity)
         return management 
+    
+    def deleteManagement(self, id):
+        return managementDAO.deleteManagement(id)
+    
+    def insertManagement(self, management):
+        managementEntity = ManagementMapper.toManagementEntity(management)
+        return managementDAO.insertManagement(managementEntity)

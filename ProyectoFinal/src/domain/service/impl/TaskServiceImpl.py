@@ -24,9 +24,8 @@ managementRepository = ManagementRepositoryImpl.ManagementRepositoryImpl()
 
 
 class TaskServiceImpl(TaskService.TaskService):
-    def getAll(self):
-        return taskRepository.getAll()
-    
+    def getAll(self, managementId):
+        return taskRepository.getAll(managementId)
 
     def getById(self, id):
         task = taskRepository.getById(id)

@@ -23,8 +23,9 @@ positService = PositServiceImpl.PositServiceImpl()
 
 @positApp.route('/posits', methods=['GET'])
 def getAll():
+    management = request.args.get('managementId', type=int)
     #Posible paginacion en futuro: page = request.args.get('page', type=int)
-    positList = positService.getAll()
+    positList = positService.getAll(management)
     positsDetailWeb = []
     for posit in positList:
         positsDetailWeb.append(PositMapper.toPositDetailWeb(posit).getJson())
@@ -48,13 +49,13 @@ def getById(id, name=None):
 def insertPosit():
     try:
         request_data = request.get_json()
-        positCreate = PositCreate.PositCreate('')
+        positCreate = PositCreate.PositCreate('', 0)
 
-        if 'name' in request_data:
+        if ('name' in request_data) & ('managementId' in request_data):
             positCreate.setName(request_data['name'])
+            positCreate.setManagementId(request_data['managementId'])
 
         posit = PositMapper.toPositForInsert(positCreate)
-
         response = ResponseTask.getPage(positService.insertPosit(posit))
         return response
     except Exception as exce:

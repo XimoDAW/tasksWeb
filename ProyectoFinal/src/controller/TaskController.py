@@ -28,7 +28,8 @@ taskService = TaskServiceImpl.TaskServiceImpl()
 def getAll():
 
     #Posible paginacion en futuro: page = request.args.get('page', type=int)
-    taskList = taskService.getAll()
+    management = request.args.get('managementId', type=int)
+    taskList = taskService.getAll(management)
     tasksListWeb = []
     for task in taskList:
         tasksListWeb.append(TaskMapper.toTaskListWeb(task).getJson())

@@ -3,7 +3,7 @@ import sys
 
 class PositService(metaclass=ABCMeta):
     @abstractmethod
-    def getAll():
+    def getAll(self, managementId):
         pass
 
     @abstractmethod
