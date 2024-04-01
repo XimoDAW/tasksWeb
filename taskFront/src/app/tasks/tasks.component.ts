@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Task } from '../Models/task';
 import { TaskServiceService } from '../Services/task-service.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-tasks',
@@ -8,12 +9,29 @@ import { TaskServiceService } from '../Services/task-service.service';
   styleUrls: ['./tasks.component.css']
 })
 export class TasksComponent {
-  constructor(private taskService: TaskServiceService) { }
+  constructor(private taskService: TaskServiceService, private activeRoute: ActivatedRoute, private router: Router) { }
   tasks!: Task[]
+  idPosit!: number
+  idManagement!: number
+  task: Task = {
+    "id": 0,
+    "name": '',
+    "description": '',
+    "idPosit": 0,
+    "idManagement": 0,
+    "dateStart": '',
+    "dateEnd": '',
+    "status": ''
+  }
 
   ngOnInit() {
-    this.taskService.getAllTasks(1).subscribe(tasks => {
-      this.tasks = tasks
+    this.activeRoute.queryParams.subscribe(params => {
+      this.idPosit = params['idPosit']
+      this.idManagement = params['idManagement']
+    })
+    this.taskService.getAllTasks(this.idPosit).subscribe(tasks => {
+      console.log(tasks)
+      this.tasks = []
       const tasksLength = tasks.length
 
       for (let i = 0; i < tasksLength; i++) {
@@ -21,24 +39,24 @@ export class TasksComponent {
         let indexPoint = dato.indexOf(',')
         let indexId = dato.indexOf(':')
         let indexName = dato.indexOf(':', indexId + 1)
-
+        let indexPoint2 = dato.indexOf(',', indexPoint + 1)
         let id = parseInt(dato.slice(indexId + 2, indexPoint))
-        let name = dato.slice(indexName + 4, -3)
+        let name = dato.slice(indexName + 4, indexPoint2 - 2)
 
-        let task:Task = {
-          "id": id,
-          "name": name,
-          description: '',
-          idPosit: 0,
-          idManagement: 0,
-          dateStart: '',
-          dateEnd: '',
-          status: ''
-        }
+        this.task.id = id
+        this.task.name = name
+        this.task.idManagement = this.idManagement
 
-        this.tasks.push(task)
-        console.log(task)
+        this.tasks.push(this.task)
       }
     })
+  }
+
+  return() {
+    this.router.navigate(['posits'], { queryParams: { idManagement: this.idManagement } })
+  }
+
+  view(id: number) {
+    this.router.navigate(['tasks/' + id])
   }
 }

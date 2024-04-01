@@ -21,10 +21,10 @@ class TaskDAO:
     def __init__(self):
         self.connection = DButil.connect('localhost', 'root', 'root', 'tasks')
         
-    def getAll(self, managementId):
+    def getAll(self, positId):
         cursor = DButil.open(self.connection)
         taskEntityList = []
-        cursor.execute('select * from task where id_management = %s', (managementId))
+        cursor.execute('select * from task where id_posit = %s', (positId))
         for id, name, description, idPosit, idManagement, startDate, endDate, status in cursor.fetchall():
             taskEntity = TaskEntity.TaskEntity(id, name, description, positDAO.getById(idPosit), managementDAO.getById(idManagement), startDate, endDate, status)
             taskEntityList.append(taskEntity)

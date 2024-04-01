@@ -16,4 +16,10 @@ export class PositServiceService {
     return this.positServer.get<Posit[]>(this.url + '?managementId=' + managementId)
 
   }
+
+  addPosit(posit:Posit): Observable<Posit> {
+    return this.positServer.post<Posit>(this.url,posit)
+
+  }
+
 }

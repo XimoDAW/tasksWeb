@@ -5,14 +5,14 @@
             <div class="card">
                 <div class="card-body text-center">
                     <h5 class="card-title">{{posit.name}}</h5>
-                    <a href="#" class="btn btn-primary btn-sm mb-2" style="margin-right: 10px">Entrar</a>
+                    <a class="btn btn-primary btn-sm mb-2" style="margin-right: 10px" (click)="view(posit.id)">Entrar</a>
                     <a href="#" class="btn btn-secondary btn-sm mb-2" style="margin-right: 10px">Modificar</a>
                     <a href="#" class="btn btn-danger btn-sm mb-2">Borrar</a>
                 </div>
             </div>
         </div>
         <div>
-            <a href="#" class="btn btn-success">Añadir nuevo posit</a>
+            <a class="btn btn-success" (click)="addPosit()">Añadir nuevo posit</a>
         </div>
     </div>
 </div>

@@ -2,7 +2,7 @@ from abc import ABCMeta, abstractmethod
 
 class TaskService(metaclass=ABCMeta):
     @abstractmethod
-    def getAll(self, managementId):
+    def getAll(self, positId):
         pass
 
     @abstractmethod

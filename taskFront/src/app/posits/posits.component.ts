@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Posit } from '../Models/posit';
 import { PositServiceService } from '../Services/posit-service.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Guard1Guard } from '../Guards/guard1.guard';
 
 @Component({
@@ -11,17 +11,18 @@ import { Guard1Guard } from '../Guards/guard1.guard';
 })
 export class PositsComponent {
 
-  constructor(private positService: PositServiceService, private activeRoute: ActivatedRoute, private guard: Guard1Guard) { }
+  constructor(private positService: PositServiceService, private activeRoute: ActivatedRoute, private router: Router) { }
   posits!: Posit[]
+  idManagement:number = 0
 
   ngOnInit() {
-    let idManagement = 0
+
     this.activeRoute.queryParams.subscribe(params => {
-      idManagement = params['idManagement']
+      this.idManagement = params['idManagement']
     })
 
     //Dentro del getAllPosits iria el usuario
-    this.positService.getAllPosits(idManagement).subscribe(posits => {
+    this.positService.getAllPosits(this.idManagement).subscribe(posits => {
       this.posits = []
       const positsLength = posits.length
 
@@ -46,5 +47,13 @@ export class PositsComponent {
         this.posits.push(posit)
       }
     })
+  }
+
+  addPosit() {
+    this.router.navigate(['/posits/add'], { queryParams: { idManagement: this.idManagement } })
+  }
+
+  view(id:number) {
+    this.router.navigate(['/tasks'], { queryParams: { idPosit: id, idManagement: this.idManagement}})
   }
 }

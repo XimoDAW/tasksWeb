@@ -12,9 +12,13 @@ export class TaskServiceService {
 
   url = "http://127.0.0.1:5000/tasks"
 
-  getAllTasks(managementId:number): Observable<Task[]> {
-    return this.taskServer.get<Task[]>(this.url + '?managementId=' + managementId)
+  getAllTasks(positId:number): Observable<Task[]> {
+    return this.taskServer.get<Task[]>(this.url + '?positId=' + positId)
 
+  }
+
+  getTaskById(id:number): Observable<Task> {
+    return this.taskServer.get<Task>(this.url + "/" + id)
   }
   
 }

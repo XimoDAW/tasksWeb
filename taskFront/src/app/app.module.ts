@@ -8,9 +8,10 @@ import { FormsModule } from '@angular/forms';
 import { TasksComponent } from './tasks/tasks.component';
 import { PositsComponent } from './posits/posits.component';
 import { MainComponent } from './main/main.component';
-import { TasksByPositComponent } from './tasks-by-posit/tasks-by-posit.component';
 import { ErrorComponent } from './error/error.component';
 import { ErrorUsuarioComponent } from './error-usuario/error-usuario.component';
+import { AddPositComponent } from './add-posit/add-posit.component';
+import { TaskDetailComponent } from './task-detail/task-detail.component';
 
 @NgModule({
   declarations: [
@@ -18,9 +19,10 @@ import { ErrorUsuarioComponent } from './error-usuario/error-usuario.component';
     TasksComponent,
     PositsComponent,
     MainComponent,
-    TasksByPositComponent,
     ErrorComponent,
-    ErrorUsuarioComponent
+    ErrorUsuarioComponent,
+    AddPositComponent,
+    TaskDetailComponent
   ],
   imports: [
     BrowserModule,

@@ -3,10 +3,12 @@ import json
 class TaskListWeb:
     __id = 0
     __name = ''
+    __idManagement = 0
 
-    def __init__(self, id, name):
+    def __init__(self, id, name, idManagement):
         self.__id = id
         self.__name = name
+        self.__idManagement = idManagement
 
     def getId(self):
         return self.__id
@@ -19,6 +21,12 @@ class TaskListWeb:
     
     def setName(self, name):
         self.__name = name
+
+    def getManagementId(self):
+        return self.__idManagement
+    
+    def setManagementId(self, idManagement):
+        self.__idManagement = idManagement
 
     def getJson(self):
         

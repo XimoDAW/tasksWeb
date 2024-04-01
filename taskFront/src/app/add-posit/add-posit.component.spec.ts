@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TasksByPositComponent } from './tasks-by-posit.component';
+import { AddPositComponent } from './add-posit.component';
 
-describe('TasksByPositComponent', () => {
-  let component: TasksByPositComponent;
-  let fixture: ComponentFixture<TasksByPositComponent>;
+describe('AddPositComponent', () => {
+  let component: AddPositComponent;
+  let fixture: ComponentFixture<AddPositComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ TasksByPositComponent ]
+      declarations: [ AddPositComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(TasksByPositComponent);
+    fixture = TestBed.createComponent(AddPositComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

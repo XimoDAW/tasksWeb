@@ -37,9 +37,10 @@ def mapperStatusToTask(statusCondition):
     return 'Fuera de plazo'
 
 def toTaskListWeb(task):
-    taskListWeb = TaskListWeb.TaskListWeb(0, '')
+    taskListWeb = TaskListWeb.TaskListWeb(0, '', 0)
     taskListWeb.setId(task.getId())
     taskListWeb.setName(task.getName())
+    taskListWeb.setManagementId(task.getManagement().getId())
     return taskListWeb
 
 def toTaskDetailWeb(task):
