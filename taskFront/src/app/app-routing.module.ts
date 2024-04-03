@@ -11,8 +11,8 @@ import { TaskDetailComponent } from './task-detail/task-detail.component';
 const routes: Routes = [
   { path: '', component: MainComponent },
   { path: 'posits', canActivate: [Guard1Guard], component: PositsComponent },
-  { path: 'tasks', component: TasksComponent },
-  { path: 'tasks/:id', component: TaskDetailComponent },
+  { path: 'tasks', canActivate: [Guard1Guard], component: TasksComponent },
+  { path: 'tasks/:id', canActivate: [Guard1Guard], component: TaskDetailComponent },
   { path: 'posits/add', canActivate: [Guard1Guard], component: AddPositComponent },
   { path: '**', component: ErrorUsuarioComponent }
 ];
