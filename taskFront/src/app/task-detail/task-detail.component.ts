@@ -16,8 +16,8 @@ export class TaskDetailComponent {
     id: 0,
     name: '',
     description: '',
-    idPosit: 0,
-    idManagement: 0,
+    positId: 0,
+    managementId: 0,
     startDate: '',
     endDate: '',
     status: ''
@@ -68,8 +68,8 @@ export class TaskDetailComponent {
       this.task.id = id
       this.task.name = name
       this.task.description = description
-      this.task.idPosit = idPosit
-      this.task.idManagement = idManagement
+      this.task.positId = idPosit
+      this.task.managementId = idManagement
       this.task.startDate = startDate
       this.task.endDate = endDate
       this.task.status = status
@@ -78,6 +78,6 @@ export class TaskDetailComponent {
   }
 
   return() {
-    this.router.navigate(['/tasks'], { queryParams: { idPosit: this.task.idPosit, idManagement: this.task.idManagement}})
+    this.router.navigate(['/tasks'], { queryParams: { idPosit: this.task.positId, idManagement: this.task.managementId}})
   }
 }

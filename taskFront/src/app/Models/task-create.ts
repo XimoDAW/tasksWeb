@@ -1,8 +1,8 @@
 export interface TaskCreate {
     name:string,
     description:string,
-    idPosit:number,
-    idManagement:number,
+    positId:number,
+    managementId:number,
     startDate:string,
     endDate:string
 }

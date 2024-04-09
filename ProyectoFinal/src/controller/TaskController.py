@@ -61,7 +61,6 @@ def insertTask():
             taskCreate.setManagementId(request_data['managementId'])
             taskCreate.setStartDate(request_data['startDate'])
             taskCreate.setEndDate(request_data['endDate'])
-
         task = TaskMapper.toTaskForInsert(taskCreate)
         response = ResponseTask.getPage(taskService.insertTask(task, taskCreate.getPositId(), taskCreate.getManagementId()))
         return response

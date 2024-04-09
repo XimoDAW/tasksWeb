@@ -17,8 +17,8 @@ export class TasksComponent {
     "id": 0,
     "name": '',
     "description": '',
-    "idPosit": 0,
-    "idManagement": 0,
+    "positId": 0,
+    "managementId": 0,
     "startDate": '',
     "endDate": '',
     "status": ''
@@ -45,7 +45,7 @@ export class TasksComponent {
 
         this.task.id = id
         this.task.name = name
-        this.task.idManagement = this.idManagement
+        this.task.managementId = this.idManagement
 
         this.tasks.push(this.task)
       }

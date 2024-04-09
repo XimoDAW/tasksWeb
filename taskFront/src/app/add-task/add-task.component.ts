@@ -12,12 +12,12 @@ export class AddTaskComponent {
   constructor(private taskService: TaskServiceService, private router: Router, private activeRoute: ActivatedRoute) { }
 
   task: TaskCreate = {
-    name: '',
-    description: '',
-    idPosit: 0,
-    idManagement: 0,
-    startDate: '',
-    endDate: ''
+    "name": "",
+    "description": "",
+    "positId": 0,
+    "managementId": 0,
+    "startDate": "",
+    "endDate": ""
   }
 
   name!: string
@@ -37,8 +37,8 @@ export class AddTaskComponent {
   add() {
     this.task.name = this.name
     this.task.description = this.description
-    this.task.idPosit = this.idPosit
-    this.task.idManagement = this.idManagement
+    this.task.positId = this.idPosit
+    this.task.managementId = this.idManagement
     let dateOrder = this.dateStart.split('-')
     this.task.startDate = dateOrder[2] + '-' + dateOrder [1] + '-' + dateOrder[0]
     dateOrder = this.dateEnd.split('-')
