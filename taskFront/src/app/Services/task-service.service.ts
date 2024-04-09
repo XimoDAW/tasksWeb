@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Task } from '../Models/task';
+import { TaskCreate } from '../Models/task-create';
 
 @Injectable({
   providedIn: 'root'
@@ -19,6 +20,11 @@ export class TaskServiceService {
 
   getTaskById(id:number): Observable<Task> {
     return this.taskServer.get<Task>(this.url + "/" + id)
+  }
+
+  addTask(task:TaskCreate): Observable<TaskCreate> {
+    return this.taskServer.post<TaskCreate>(this.url,task)
+
   }
   
 }

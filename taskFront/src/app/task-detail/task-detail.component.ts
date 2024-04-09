@@ -18,8 +18,8 @@ export class TaskDetailComponent {
     description: '',
     idPosit: 0,
     idManagement: 0,
-    dateStart: '',
-    dateEnd: '',
+    startDate: '',
+    endDate: '',
     status: ''
   }
 
@@ -70,8 +70,8 @@ export class TaskDetailComponent {
       this.task.description = description
       this.task.idPosit = idPosit
       this.task.idManagement = idManagement
-      this.task.dateStart = startDate
-      this.task.dateEnd = endDate
+      this.task.startDate = startDate
+      this.task.endDate = endDate
       this.task.status = status
       console.log(this.task)
     })

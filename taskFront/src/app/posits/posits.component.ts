@@ -13,7 +13,7 @@ export class PositsComponent {
 
   constructor(private positService: PositServiceService, private activeRoute: ActivatedRoute, private router: Router) { }
   posits!: Posit[]
-  idManagement:number = 0
+  idManagement: number = 0
 
   ngOnInit() {
 
@@ -35,13 +35,13 @@ export class PositsComponent {
         let indexPoint2 = dato.indexOf(',', indexPoint1 + 1)
 
         let id = parseInt(dato.slice(indexId + 2, indexPoint1))
-        let name = dato.slice(indexName + 4, indexPoint2 -2)
-        let managementId = parseInt(dato.slice(indexManagementId +2, -1))
+        let name = dato.slice(indexName + 4, indexPoint2 - 2)
+        let managementId = parseInt(dato.slice(indexManagementId + 2, -1))
 
-        let posit:Posit = {
-          "id":id,
-          "name":name,
-          "managementId":managementId
+        let posit: Posit = {
+          "id": id,
+          "name": name,
+          "managementId": managementId
         }
 
         this.posits.push(posit)
@@ -53,7 +53,15 @@ export class PositsComponent {
     this.router.navigate(['/posits/add'], { queryParams: { idManagement: this.idManagement } })
   }
 
-  view(id:number) {
-    this.router.navigate(['/tasks'], { queryParams: { idPosit: id, idManagement: this.idManagement}})
+  view(id: number) {
+    this.router.navigate(['/tasks'], { queryParams: { idPosit: id, idManagement: this.idManagement } })
+  }
+
+  deletePosit(id: number) {
+    this.router.navigate(['/posits/' + id], { queryParams: { idPosit: id, idManagement: this.idManagement } })
+  }
+
+  modifyPosit(id: number) {
+    this.router.navigate(['/posits/modify/' + id], { queryParams: { idPosit: id, idManagement: this.idManagement } })
   }
 }

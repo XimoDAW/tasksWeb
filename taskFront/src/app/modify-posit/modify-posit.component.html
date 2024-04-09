@@ -1,0 +1,14 @@
+<h1 class="text-center">MODIFICAR POSIT</h1>
+
+<div style="display: flex; justify-content: center;">
+    <div class="form-group">
+        <label for="formGroupExampleInput">ID:</label>
+        <input type="text" readonly class="form-control" id="formGroupExampleInput"
+            [(ngModel)]="id">
+        <label for="formGroupExampleInput">NOMBRE:</label>
+        <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Nombre del posit"
+            [(ngModel)]="name">
+        <a class="btn btn-success mt-3" (click)="modify()">MODIFICAR</a>
+        <a class="btn btn-muted mt-3 text-rigth" (click)="cancel()">CANCELAR</a>
+    </div>
+</div>

@@ -1,0 +1,20 @@
+<h1 class="text-center">AÑADIR POSIT</h1>
+
+<div style="display: flex; justify-content: center;">
+    <div class="form-group">
+        <label for="name">NOMBRE:</label>
+        <input type="text" class="form-control" id="name" placeholder="Nombre del posit"
+            [(ngModel)]="name">
+        <label for="description">DESCRIPCION:</label>
+        <input type="text" class="form-control" id="description" placeholder="Descripcion del posit"
+            [(ngModel)]="description">
+        <label for="startDate">FECHA DE INICIO:</label>
+        <input type="date" class="form-control" id="startDate" placeholder="Decha de inicio del posit"
+            [(ngModel)]="dateStart">
+        <label for="endDate">FECHA FINAL:</label>
+        <input type="date" class="form-control" id="endDate" placeholder="Fecha final del posit"
+            [(ngModel)]="dateEnd">
+        <a class="btn btn-success mt-3" (click)="add()">AÑADIR</a>
+        <a class="btn btn-muted mt-3 text-rigth" (click)="cancel()">CANCELAR</a>
+    </div>
+</div>

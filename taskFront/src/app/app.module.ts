@@ -12,6 +12,11 @@ import { ErrorComponent } from './error/error.component';
 import { ErrorUsuarioComponent } from './error-usuario/error-usuario.component';
 import { AddPositComponent } from './add-posit/add-posit.component';
 import { TaskDetailComponent } from './task-detail/task-detail.component';
+import { DeletePositComponent } from './delete-posit/delete-posit.component';
+import { ModifyPositComponent } from './modify-posit/modify-posit.component';
+import { ModifyTaskComponent } from './modify-task/modify-task.component';
+import { AddTaskComponent } from './add-task/add-task.component';
+import { DeleteTaskComponent } from './delete-task/delete-task.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +27,12 @@ import { TaskDetailComponent } from './task-detail/task-detail.component';
     ErrorComponent,
     ErrorUsuarioComponent,
     AddPositComponent,
-    TaskDetailComponent
+    TaskDetailComponent,
+    DeletePositComponent,
+    ModifyPositComponent,
+    ModifyTaskComponent,
+    AddTaskComponent,
+    DeleteTaskComponent
   ],
   imports: [
     BrowserModule,

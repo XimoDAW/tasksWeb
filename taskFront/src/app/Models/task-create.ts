@@ -1,10 +1,8 @@
-export interface Task {
-    id:number,
+export interface TaskCreate {
     name:string,
     description:string,
     idPosit:number,
     idManagement:number,
     startDate:string,
-    endDate:string,
-    status:string
+    endDate:string
 }

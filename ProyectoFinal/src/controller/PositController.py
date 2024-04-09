@@ -65,7 +65,8 @@ def insertPosit():
 def updatePosit(id, name=None):
     try:
         request_data = request.get_json()
-        positCreate = PositCreate.PositCreate('')
+        print(request_data)
+        positCreate = PositCreate.PositCreate('', 0)
 
         if 'name' in request_data:
             positCreate.setName(request_data['name'])

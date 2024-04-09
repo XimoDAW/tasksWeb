@@ -19,8 +19,8 @@ export class TasksComponent {
     "description": '',
     "idPosit": 0,
     "idManagement": 0,
-    "dateStart": '',
-    "dateEnd": '',
+    "startDate": '',
+    "endDate": '',
     "status": ''
   }
 
@@ -57,6 +57,18 @@ export class TasksComponent {
   }
 
   view(id: number) {
+    this.router.navigate(['tasks/view/' + id])
+  }
+
+  modifyTask(id: number) {
+    this.router.navigate(['tasks/modify/' + id])
+  }
+
+  deleteTask(id: number) {
     this.router.navigate(['tasks/' + id])
+  }
+
+  addTask() {
+    this.router.navigate(['tasks/add'], { queryParams: { idPosit: this.idPosit, idManagement: this.idManagement } })
   }
 }

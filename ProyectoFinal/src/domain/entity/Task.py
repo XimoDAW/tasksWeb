@@ -69,6 +69,10 @@ class Task:
     def setEndDate(self, endDate):
         dateEnd = endDate
         dateStart = self.getStartDate()
+        orderDate = dateStart.split('-')
+        dateStart = int(orderDate[2] + orderDate[1] + orderDate[0])
+        orderDate = dateEnd.split('-')
+        dateEnd = int(orderDate[2] + orderDate[1] + orderDate[0])
 
         if (dateEnd < dateStart):
             raise DateException.DateException('ERROR: No puedes insertar una fecha final anterior a la fecha inicial')

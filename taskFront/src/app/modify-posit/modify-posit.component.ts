@@ -1,44 +1,42 @@
 import { Component } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
 import { PositServiceService } from '../Services/posit-service.service';
-import { ActivatedRoute, Router } from '@angular/router';
-import { Posit } from '../Models/posit';
-import { ErrorComponent } from '../error/error.component';
+import { PositCreate } from '../Models/posit-create';
 
 @Component({
-  selector: 'app-add-posit',
-  templateUrl: './add-posit.component.html',
-  styleUrls: ['./add-posit.component.css']
+  selector: 'app-modify-posit',
+  templateUrl: './modify-posit.component.html',
+  styleUrls: ['./modify-posit.component.css']
 })
-export class AddPositComponent {
+export class ModifyPositComponent {
   constructor(private positService: PositServiceService, private router: Router, private activeRoute: ActivatedRoute) { }
 
-
-  posit: Posit = {
-    "id": 0,
-    "name": "",
-    "managementId": 0
+  positCreate: PositCreate = {
+    name: ''
   }
 
-  name!: string
+  id!: number
+  name!: string;
   idManagement!: number
 
   ngOnInit() {
     this.activeRoute.queryParams.subscribe(params => {
       this.idManagement = parseInt(params['idManagement'])
+      this.id = parseInt(params['idPosit'])
     })
   }
 
-  add() {
-    this.posit.name = this.name
-    this.posit.managementId = this.idManagement
-    console.log(this.posit)
-    this.positService.addPosit(this.posit)
+  modify() {
+    this.positCreate.name = this.name
+    console.log(this.positCreate)
+
+    this.positService.putPosit(this.positCreate, this.id)
       .subscribe({
         next: dato => {
           console.log(`${dato}`)
           this.router.navigate(['/posits'], { queryParams: { idManagement: this.idManagement } })
         },
-        error: error => alert("Error al añadir el posit")
+        error: error => alert("Error al modificar el posit")
       })
   }
 
