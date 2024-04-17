@@ -13,18 +13,27 @@ export class TaskServiceService {
 
   url = "http://127.0.0.1:5000/tasks"
 
-  getAllTasks(positId:number): Observable<Task[]> {
+  getAllTasks(positId: number): Observable<Task[]> {
     return this.taskServer.get<Task[]>(this.url + '?positId=' + positId)
 
   }
 
-  getTaskById(id:number): Observable<Task> {
+  getTaskById(id: number): Observable<Task> {
     return this.taskServer.get<Task>(this.url + "/" + id)
   }
 
-  addTask(task:TaskCreate): Observable<TaskCreate> {
-    return this.taskServer.post<TaskCreate>(this.url,task)
+  addTask(task: TaskCreate): Observable<TaskCreate> {
+    return this.taskServer.post<TaskCreate>(this.url, task)
 
   }
-  
+
+  deleteTask(id: number): Observable<Task> {
+    return this.taskServer.delete<Task>(this.url + '/' + id)
+
+  }
+
+  putTask(task: TaskCreate, id: number): Observable<TaskCreate> {
+    return this.taskServer.put<TaskCreate>(this.url + '/' + id, task)
+  }
+
 }

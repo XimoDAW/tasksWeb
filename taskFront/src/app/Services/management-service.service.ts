@@ -15,4 +15,14 @@ export class ManagementServiceService {
       return this.managementServer.get<Management[]>(this.url + '?user=' + user + '&password=' + password)
       
     }
+
+    createManagement(management: Management): Observable<Management> {
+      return this.managementServer.post<Management>(this.url, management)
+  
+    }
+  
+    deleteManagement(id: number): Observable<Management> {
+      return this.managementServer.delete<Management>(this.url + '/' + id)
+  
+    }
   }

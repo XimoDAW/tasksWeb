@@ -13,29 +13,19 @@ export class TasksComponent {
   tasks!: Task[]
   idPosit!: number
   idManagement!: number
-  task: Task = {
-    "id": 0,
-    "name": '',
-    "description": '',
-    "positId": 0,
-    "managementId": 0,
-    "startDate": '',
-    "endDate": '',
-    "status": ''
-  }
+
 
   ngOnInit() {
     this.activeRoute.queryParams.subscribe(params => {
       this.idPosit = params['idPosit']
       this.idManagement = params['idManagement']
     })
-    this.taskService.getAllTasks(this.idPosit).subscribe(tasks => {
-      console.log(tasks)
+    this.taskService.getAllTasks(this.idPosit).subscribe(response => {
       this.tasks = []
-      const tasksLength = tasks.length
+      const tasksLength = response.length
 
       for (let i = 0; i < tasksLength; i++) {
-        let dato = JSON.stringify(tasks[i]).slice(1, -1)
+        let dato = JSON.stringify(response[i]).slice(1, -1)
         let indexPoint = dato.indexOf(',')
         let indexId = dato.indexOf(':')
         let indexName = dato.indexOf(':', indexId + 1)
@@ -43,11 +33,18 @@ export class TasksComponent {
         let id = parseInt(dato.slice(indexId + 2, indexPoint))
         let name = dato.slice(indexName + 4, indexPoint2 - 2)
 
-        this.task.id = id
-        this.task.name = name
-        this.task.managementId = this.idManagement
+        let task: Task = {
+          "id": id,
+          "name": name,
+          "description": '',
+          "positId": 0,
+          "managementId": 0,
+          "startDate": '',
+          "endDate": '',
+          "status": ''
+        }
 
-        this.tasks.push(this.task)
+        this.tasks.push(task)
       }
     })
   }
@@ -57,15 +54,15 @@ export class TasksComponent {
   }
 
   view(id: number) {
-    this.router.navigate(['tasks/view/' + id])
+    this.router.navigate(['tasks/view/' + id], { queryParams: { idPosit: this.idPosit, idManagement: this.idManagement } })
   }
 
   modifyTask(id: number) {
-    this.router.navigate(['tasks/modify/' + id])
+    this.router.navigate(['tasks/modify/' + id], { queryParams: { idPosit: this.idPosit, idManagement: this.idManagement } })
   }
 
   deleteTask(id: number) {
-    this.router.navigate(['tasks/' + id])
+    this.router.navigate(['tasks/' + id], { queryParams: { idPosit: this.idPosit, idManagement: this.idManagement } })
   }
 
   addTask() {

@@ -36,6 +36,7 @@ class PositDAO:
     
     def deletePosit(self, id):
         cursor = DButil.open(self.connection)
+        cursor.execute('delete from task where id_posit=%s', (id))
         cursor.execute('delete from posit where id=%s', (id))
         deleting = 'Posit borrado con el id: ' + str(id)
         cursor.execute('alter table posit AUTO_INCREMENT = 1')

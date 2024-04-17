@@ -17,6 +17,10 @@ import { ModifyPositComponent } from './modify-posit/modify-posit.component';
 import { ModifyTaskComponent } from './modify-task/modify-task.component';
 import { AddTaskComponent } from './add-task/add-task.component';
 import { DeleteTaskComponent } from './delete-task/delete-task.component';
+import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
+import { DeleteAccountComponent } from './delete-account/delete-account.component';
+import { CreateAccountComponent } from './create-account/create-account.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +36,11 @@ import { DeleteTaskComponent } from './delete-task/delete-task.component';
     ModifyPositComponent,
     ModifyTaskComponent,
     AddTaskComponent,
-    DeleteTaskComponent
+    DeleteTaskComponent,
+    HeaderComponent,
+    FooterComponent,
+    DeleteAccountComponent,
+    CreateAccountComponent
   ],
   imports: [
     BrowserModule,

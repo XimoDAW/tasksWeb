@@ -1,1 +1,22 @@
-<p>modify-task works!</p>
+<h1 class="text-center">MODIFICAR TAREA</h1>
+
+<div style="display: flex; justify-content: center;">
+    <div class="form-group">
+        <label for="formGroupExampleName">ID:</label>
+        <input type="text" readonly class="form-control" id="formGroupExampleName" [(ngModel)]="id">
+        <label for="formGroupExampleInput">NOMBRE:</label>
+        <input type="text" class="form-control" id="formGroupExampleName" placeholder="Nombre del posit"
+            [(ngModel)]="name">
+        <label for="formGroupExampleDescription">Descripcion:</label>
+        <input type="text" class="form-control" id="formGroupExampleDescription" placeholder="Nombre del posit"
+            [(ngModel)]="description">
+        <label for="formGroupExampleStartDate">Fecha de inicio:</label>
+        <input type="date" class="form-control" id="formGroupExampleStartDate" placeholder="Nombre del posit"
+            [(ngModel)]="startDate">
+        <label for="formGroupExampleEndDate">Fecha final:</label>
+        <input type="date" class="form-control" id="formGroupExampleEndDate" placeholder="Nombre del posit"
+            [(ngModel)]="endDate">
+        <a class="btn btn-success mt-3" (click)="modify()">MODIFICAR</a>
+        <a class="btn btn-muted mt-3 text-rigth" (click)="cancel()">CANCELAR</a>
+    </div>
+</div>

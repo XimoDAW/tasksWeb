@@ -44,4 +44,10 @@ export class MainComponent {
     })
 
   }
+
+  createUser() {
+    this.validate = true
+    this.guard.isConnect(this.validate)
+    this.router.navigate(['create'])
+  }
 }

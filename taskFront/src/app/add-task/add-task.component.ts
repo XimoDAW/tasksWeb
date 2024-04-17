@@ -43,7 +43,6 @@ export class AddTaskComponent {
     this.task.startDate = dateOrder[2] + '-' + dateOrder [1] + '-' + dateOrder[0]
     dateOrder = this.dateEnd.split('-')
     this.task.endDate = dateOrder[2] + '-' + dateOrder [1] + '-' + dateOrder[0]
-    console.log(this.task)
     this.taskService.addTask(this.task)
       .subscribe({
         next: dato => {

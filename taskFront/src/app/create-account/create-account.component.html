@@ -1,0 +1,14 @@
+<h1 class="text-center">CREAR NUEVO USUARIO</h1>
+
+<div style="display: flex; justify-content: center;">
+    <div class="form-group">
+        <label for="formGroupExampleName">NOMBRE:</label>
+        <input type="text" class="form-control" id="formGroupExampleName"
+            [(ngModel)]="name">
+        <label for="formGroupExamplePassword">CONTRASEÑA:</label>
+        <input type="password" class="form-control" id="formGroupExamplePassword"
+            [(ngModel)]="password">
+        <a class="btn btn-success mt-3" (click)="create()">REGISTRARSE</a>
+        <a class="btn btn-muted mt-3 text-rigth" (click)="cancel()">CANCELAR</a>
+    </div>
+</div>
