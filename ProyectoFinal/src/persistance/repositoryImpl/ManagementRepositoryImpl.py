@@ -21,8 +21,8 @@ class ManagementRepositoryImpl (ManagementRepository.ManagementRepository):
             managementList.append(ManagementMapper.toManagement(managementEntity))
         return managementList
 
-    def getByUserAndPassword(self, user, password):
-        managementEntity = managementDAO.getByUserAndPassword(user, password)
+    def getByUser(self, user):
+        managementEntity = managementDAO.getByUser(user)
         if (managementEntity is None):
             return None
             

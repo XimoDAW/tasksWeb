@@ -26,7 +26,7 @@ def toManagementDetailWeb(management):
 def toManagementForInsert(managementCreate):
     management = Management.Management(0, '', '')
     management.setUser(managementCreate.getUser())
-    management.setPassword(managementCreate.getUser())
+    management.setPassword(managementCreate.getPassword())
     return management
 
 def toManagementEntity(management):

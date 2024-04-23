@@ -7,7 +7,7 @@ class ManagementService(metaclass=ABCMeta):
         pass
 
     @abstractmethod
-    def getByUserAndPassword(self, user, password):
+    def getByUser(self, user):
         pass
 
     @abstractmethod

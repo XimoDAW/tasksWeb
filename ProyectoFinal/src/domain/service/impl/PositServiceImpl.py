@@ -9,6 +9,7 @@ import PositRepositoryImpl
 sys.path.append('c:\\tasksWeb\\ProyectoFinal\\src\\http_errors')
 import ResourceNotFoundException
 
+
 positRepository = PositRepositoryImpl.PositRepositoryImpl()
 
 class PositServiceImpl(PositService.PositService):

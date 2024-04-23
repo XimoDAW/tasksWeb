@@ -23,9 +23,9 @@ class ManagementDAO:
             managementEntityList.append(managementEntity)
         return managementEntityList
 
-    def getByUserAndPassword(self, user, password):
+    def getByUser(self, user):
         cursor = DButil.open(self.connection)
-        cursor.execute('select * from management where user = %s and password = %s', (user, password))
+        cursor.execute('select * from management where usr = %s', (user))
         result = cursor.fetchone()
         if not result:
             return None
@@ -56,7 +56,7 @@ class ManagementDAO:
     
     def insertManagement(self, managementEntity):
         cursor = DButil.open(self.connection)
-        cursor.execute('insert into management (id, user, password) values (%s, %s, %s)', (managementEntity.getId(),managementEntity.getUser(), managementEntity.getPassword()))
+        cursor.execute('insert into management (id, usr, pass) values (%s, %s, %s)', (managementEntity.getId(),managementEntity.getUser(), managementEntity.getPassword()))
         inserting = 'Usuario insertado correctamente'
         self.connection.commit()
         return inserting

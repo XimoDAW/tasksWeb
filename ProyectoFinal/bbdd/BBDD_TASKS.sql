@@ -7,7 +7,7 @@ USE tasks;
 CREATE TABLE management (
 	id int PRIMARY KEY NOT NULL AUTO_INCREMENT,
 	usr VARCHAR(15),
-	pass VARCHAR(30)
+	pass VARCHAR(300)
 	);
 	
 CREATE TABLE posit (

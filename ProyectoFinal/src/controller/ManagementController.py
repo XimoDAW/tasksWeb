@@ -26,7 +26,7 @@ def getAll():
         user = request.args.get('user', type=str)
         password = request.args.get('password', type=str)
         #Posible paginacion en futuro: page = request.args.get('page', type=int)
-        management = managementService.getByUserAndPassword(user, password)
+        management = managementService.getByUser(user, password)
         managementDetailWeb = ManagementMapper.toManagementDetailWeb(management).getJson()
         response = ResponseTask.getPage(managementDetailWeb)
         return response
