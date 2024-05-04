@@ -8,5 +8,5 @@ import ResponseTask
 
 @mainApp.route('/', methods=['GET'])
 def getMain():
-        response = ResponseTask.getPage('Bienvendio a la API Gestor de tareas')
+        response = ResponseTask.getPage('Bienvendio a TaskAPI')
         return response
