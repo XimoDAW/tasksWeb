@@ -50,7 +50,6 @@ class ManagementDAO:
         cursor.execute('delete from posit where id_management=%s', (id))
         cursor.execute('delete from management where id=%s', (id))
         deleting = 'Usuario borrado con el id: ' + str(id)
-        cursor.execute('alter table management AUTO_INCREMENT = 1')
         self.connection.commit()
         return deleting
     
