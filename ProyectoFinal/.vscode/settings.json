@@ -11,6 +11,7 @@
         "./src/persistance/dao",
         "./src/http_response",
         "./src/http_errors",
-        "./src/controller"
+        "./src/controller",
+        "./src/domain/service"
     ]
 }
