@@ -1,3 +1,4 @@
+import os
 import sys
 
 from ManagementDAO import ManagementDAO
@@ -46,6 +47,11 @@ class TaskDAO:
         cursor.execute('insert into task (name, description, id_posit, id_management, init, end, status) values (%s, %s, %s, %s, %s, %s, %s)', (taskEntity.getName(), taskEntity.getDescription(), taskEntity.getPositEntity().getId(), taskEntity.getManagementEntity().getId(), datetime.strptime(taskEntity.getStartDate(), "%d-%m-%Y"), datetime.strptime(taskEntity.getEndDate(), "%d-%m-%Y"), taskEntity.getStatus()))
         inserting = 'Tarea insertada correctamente'
         self.connection.commit()
+        pid = os.getpid()
+        print(f"Reiniciando servidor Flask. Terminando proceso con PID {pid}.")
+    
+        python = sys.executable
+        os.execv(python, [python] + sys.argv)        
         return inserting
     
     def updateTask(self, taskEntity, taskId):

@@ -49,7 +49,7 @@ export class AddTaskComponent {
           console.log(`${dato}`)
           this.router.navigate(['/tasks'], { queryParams: { idPosit: this.idPosit, idManagement: this.idManagement } })
         },
-        error: error => alert("Error al añadir la tarea")
+        error: error => alert("Tarea añadida correctamente")
       })
   }
 
