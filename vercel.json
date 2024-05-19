@@ -1,0 +1,26 @@
+{
+    "version": 2,
+    "builds": [
+      {
+        "src": "taskFront/package.json",
+        "use": "@vercel/static-build",
+        "config": {
+          "distDir": "dist"
+        }
+      },
+      {
+        "src": "taskBack/src/App.py",
+        "use": "@vercel/python"
+      }
+    ],
+    "routes": [
+      {
+        "src": "/api/(.*)",
+        "dest": "/taskBack/src/App.py"
+      },
+      {
+        "src": "/(.*)",
+        "dest": "/taskFront/dist/$1"
+      }
+    ]
+  }  
