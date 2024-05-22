@@ -4,7 +4,7 @@ from Posit import Posit
 
 from Management import Management
 
-sys.path.append('c:\\tasksWeb\\ProyectoFinal\\src\\http_errors')
+sys.path.append('c:\\tasksWeb\\taskBack\\src\\http_errors')
 import DateException
 
 class Task:

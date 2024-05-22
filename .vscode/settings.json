@@ -12,6 +12,13 @@
         "./ProyectoFinal/src/http_response",
         "./ProyectoFinal/src/domain/service/impl",
         "./ProyectoFinal/src/controller",
-        "./ProyectoFinal/src/common/validation"
+        "./ProyectoFinal/src/common/validation",
+        "./taskBack/src/controller",
+        "./taskBack/src/persistance/model",
+        "./taskBack/src/domain/repository",
+        "./taskBack/src/persistance/repositoryImpl",
+        "./taskBack/src/http_errors",
+        "./taskBack/src/controller/entity",
+        "./taskBack/src/domain/entity"
     ]
 }
